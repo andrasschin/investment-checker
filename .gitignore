@@ -1,0 +1,6 @@
+/.idea
+venv/Include
+venv/Lib
+venv/Scripts
+venv/pyvenv.cfg
+venv/__pycache__
