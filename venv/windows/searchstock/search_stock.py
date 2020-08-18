@@ -3,8 +3,7 @@ from yahooquery import Ticker
 from windows.searchstock.add_stock import display_add_stock_window
 from classes.classes import Stock
 from controllers.controllers import create_widget
-import csv
-import time
+from controllers.controllers import config_widgets
 
 
 def display_search_stock_window():
@@ -19,8 +18,11 @@ def display_search_stock_window():
             # Retrive and prepare stock data
             ticker = Ticker(stock_ticker)
             data = ticker.price[stock_ticker]
-            current_stock = Stock(data["shortName"], data["regularMarketPrice"], data["currency"],
-                                  data["currencySymbol"])
+            current_stock = Stock(ticker=stock_ticker,
+                                  name=data["shortName"],
+                                  price=data["regularMarketPrice"],
+                                  curr=data["currency"],
+                                  curr_symbol=data["currencySymbol"])
 
             # Update stock related data
             label_stock_name_data.config(text=current_stock.name)
@@ -62,18 +64,14 @@ def display_search_stock_window():
     btn_add_stock = create_widget("button", Buttons, root, txt="Add to My Stocks",
                                   comm=lambda: display_add_stock_window(current_stock), r=5, c=2, state="disabled")
 
-    # Configure widgets
-    # TODO: Make a central config function just like create_widget.
-    CONFIG = {
+    # Widget styling
+    basic_config = {
         "font": "44",
     }
 
-    for label in Labels:
-        label.config(padx="8", pady="8", **CONFIG)
-    for button in Buttons:
-        button.config(padx="8", pady="4", **CONFIG)
-    for entry in Entries:
-        entry.config(**CONFIG)
+    config_widgets(widgets=Labels, basic_cfg=basic_config, additional_cfg={"padx": "8", "pady": "8"})
+    config_widgets(widgets=Buttons, basic_cfg=basic_config, additional_cfg={"padx": "8", "pady": "8"})
+    config_widgets(widgets=Entries, basic_cfg=basic_config)
 
     entry_stock_ticker_input.insert(0, "AMD")
 
