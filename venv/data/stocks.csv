@@ -1,3 +1,9 @@
 Stock ticker|Stock name|Quantity|Buying price|Market Value|Currency Symbol|Currency|Date Bought
-AMD|Advanced Micro Devices, Inc.|1|84.3|84.3|$|USD|2020.08.10
-NVDA|NVIDIA Corporation|15|453.18|6797.7|$|USD|2000.09.08
+SXR8.DE|iShares S&P 500|4|286.30|1145.2|€|EUR|2020.08.10
+EXW1.DE|iShares EURO STOXX 50|20|32.94|658.8|€|EUR|2020.08.10
+2B70.DE|iShares NASDAQ US Biotechnology|25|5.21|130.25|€|EUR|2020.08.10
+SIE.DE|Siemens|1|116.2|116.2|€|EUR|2020.08.10
+AMD|AMD|1|84.02|84.02|$|USD|2020.08.10
+KO|Coca-Cola|1|48.02|48.02|$|USD|2020.08.10
+INTC|Intel|1|48.78|48.78|$|USD|2020.08.10
+BOSS.DE|Hugo Boss|2|24.46|48.92|€|EUR|2020.08.11

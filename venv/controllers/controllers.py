@@ -32,3 +32,10 @@ def check_input(quan="", price="", date=""):
         return False
 
     return True
+
+
+def color_difference(value_to_check, widget):
+    if value_to_check > 0:
+        widget.config(fg="#149911")
+    if value_to_check < 0:
+        widget.config(fg="#B23A48")

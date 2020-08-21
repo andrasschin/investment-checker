@@ -1,11 +1,10 @@
 from tkinter import *
-from classes.classes import Stock
 from controllers.controllers import create_widget, check_input
 from windows.error import display_error_window
 import csv
 
 
-def display_add_stock_window(stock):
+def display_add_stock_window(stock_ticker, stock_name, stock_currency, stock_currency_symbol):
     root = Tk()
     root.title("Add Stock")
     root.config(padx="20", pady="10")
@@ -27,25 +26,25 @@ def display_add_stock_window(stock):
     label_stock_name = create_widget("label", Labels, root, txt="Stock name:", r=1, c=1)
     label_stock_custom_name = create_widget("label", Labels, root, txt="Custom stock name:", r=2, c=1)
     label_stock_quantity = create_widget("label", Labels, root, txt="Quantity:", r=3, c=1)
-    label_stock_buying_price = create_widget("label", Labels, root, txt=f"Buying price ({stock.currency_symbol})", r=4,
+    label_stock_buying_price = create_widget("label", Labels, root, txt=f"Buying price ({stock_currency_symbol})", r=4,
                                              c=1)
     label_stock_bought_date = create_widget("label", Labels, root, txt="Date bought (YYYY.MM.DD): ", r=5, c=1)
 
-    label_stock_name_data = create_widget("label", Labels, root, txt=stock.name, r=1, c=2)
+    label_stock_name_data = create_widget("label", Labels, root, txt=stock_name, r=1, c=2)
     label_stock_custom_name_data = create_widget("entry", Entries, root, w=30, r=2, c=2)
-    label_stock_custom_name_data.insert(0, stock.name)
+    label_stock_custom_name_data.insert(0, stock_name)
     label_stock_quantity_data = create_widget("entry", Entries, root, w=30, r=3, c=2)
     label_stock_buying_price_data = create_widget("entry", Entries, root, w=30, r=4, c=2)
     label_stock_bought_date_data = create_widget("entry", Entries, root, w=30, r=5, c=2)
 
     btn_add = create_widget("button", Buttons, root, txt="Add", r=6, c=2,
-                            comm=lambda: add_stock(ticker=stock.ticker,
+                            comm=lambda: add_stock(ticker=stock_ticker,
                                                    name=label_stock_custom_name_data.get(),
                                                    quantity=label_stock_quantity_data.get(),
                                                    buying_price=label_stock_buying_price_data.get(),
                                                    date_bought=label_stock_bought_date_data.get(),
-                                                   curr=stock.currency,
-                                                   curr_symbol=stock.currency_symbol))
+                                                   curr=stock_currency,
+                                                   curr_symbol=stock_currency_symbol))
 
     # Configure widgets
     CONFIG = {
