@@ -1,8 +1,7 @@
 from tkinter import *
 from yahooquery import Ticker
 from windows.searchstock.add_stock import display_add_stock_window
-from controllers.controllers import create_widget
-from controllers.controllers import config_widgets
+from controllers.controllers import create_widget, config_widgets
 
 
 def display_search_stock_window():
@@ -23,12 +22,6 @@ def display_search_stock_window():
             stock_currency = data["currency"]
             stock_currency_symbol = data["currencySymbol"]
 
-            # current_stock = Stock(ticker=stock_ticker,
-            #                       name=data["shortName"],
-            #                       price=data["regularMarketPrice"],
-            #                       curr=data["currency"],
-            #                       curr_symbol=data["currencySymbol"])
-
             # Update stock related data
             label_stock_name_data.config(text=stock_name)
             label_regular_market_price_data.config(text=f"{stock_currency_symbol}{stock_price}")
@@ -38,6 +31,7 @@ def display_search_stock_window():
             btn_add_stock.config(state="normal")
 
         except:
+            # Display "NOT FOUND" if the given stock ticker gives no data
             label_stock_name_data.config(text="NOT FOUND")
             label_regular_market_price_data.config(text="NOT FOUND")
             label_currency_data.config(text="NOT FOUND")
@@ -45,11 +39,11 @@ def display_search_stock_window():
             # Disable add stock button
             btn_add_stock.config(state="disabled")
 
-    # Global variables
-    stock_ticker = None
-    stock_name = None
-    stock_currency = None
-    stock_currency_symbol = None
+    # Stock related variables
+    stock_ticker            = None
+    stock_name              = None
+    stock_currency          = None
+    stock_currency_symbol   = None
 
     Labels = []
     Entries = []

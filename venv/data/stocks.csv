@@ -1,7 +1,7 @@
 Stock ticker|Stock name|Quantity|Buying price|Market Value|Currency Symbol|Currency|Date Bought
-SXR8.DE|iShares S&P 500|4|286.30|1145.2|€|EUR|2020.08.10
+SXR8.DE|iShares S&P500|4|286.30|1145.2|€|EUR|2020.08.10
 EXW1.DE|iShares EURO STOXX 50|20|32.94|658.8|€|EUR|2020.08.10
-2B70.DE|iShares NASDAQ US Biotechnology|25|5.21|130.25|€|EUR|2020.08.10
+2B70.DE|iShares NASDAQ BIOTECH|25|5.21|130.25|€|EUR|2020.08.10
 SIE.DE|Siemens|1|116.2|116.2|€|EUR|2020.08.10
 AMD|AMD|1|84.02|84.02|$|USD|2020.08.10
 KO|Coca-Cola|1|48.02|48.02|$|USD|2020.08.10

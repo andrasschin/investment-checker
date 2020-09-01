@@ -1,5 +1,4 @@
 from tkinter import *
-from classes.classes import Stock
 from controllers.controllers import create_widget, config_widgets
 import csv
 

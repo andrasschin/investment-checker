@@ -6,8 +6,8 @@ from windows.create_report import display_create_report_window
 root = Tk()
 root.title("Investment Checker")
 
-my_stocks = Button(root, text="My Stocks", command=lambda: display_my_stocks_window())
-add_stock = Button(root, text="Add Stock", command=lambda: display_search_stock_window())
+my_stocks     = Button(root, text="My Stocks", command=lambda: display_my_stocks_window())
+add_stock     = Button(root, text="Add Stock", command=lambda: display_search_stock_window())
 create_report = Button(root, text="Create Report", command=lambda: display_create_report_window())
 
 # Widget styling
