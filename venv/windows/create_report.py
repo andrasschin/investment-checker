@@ -3,7 +3,7 @@ from controllers.controllers import create_widget, config_widgets, color_differe
 from classes.classes import Stock
 import csv
 import datetime
-from openpyxl import load_workbook
+from openpyxl import load_workbook, Workbook
 from openpyxl.styles import numbers, Font
 from openpyxl.chart import LineChart, Reference
 from openpyxl.chart.shapes import GraphicalProperties
@@ -14,7 +14,11 @@ def display_create_report_window():
     root.config(padx="20", pady="10")
 
     def log(today, stocks):
-        wb = load_workbook(filename="data/stocks.xlsx")
+        try:
+            wb = load_workbook(filename="data/stocks.xlsx")
+        except FileNotFoundError:
+            wb = Workbook()
+
         for stock in stocks:
             # This step deletes the chart
             worksheet = wb[stock.name]

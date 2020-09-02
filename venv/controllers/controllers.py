@@ -1,7 +1,7 @@
 from tkinter import *
 import re
 import datetime
-from openpyxl import load_workbook
+from openpyxl import load_workbook, Workbook
 from openpyxl.styles import Alignment, Font, numbers
 from openpyxl.formatting.rule import CellIsRule
 from openpyxl.utils import column_index_from_string
@@ -49,13 +49,18 @@ def color_difference(value_to_check, widget):
 
 
 def excel_sheet_setup(ticker, name, quantity, currency, date_bought, buying_price, market_value):
+    # Create stocks.xlsx if doesn't exist
+    try:
+        wb = load_workbook("data/stocks.xlsx")
+    except FileNotFoundError:
+        wb = Workbook()
+
     # Convert variables
     quantity = int(quantity)
     buying_price = float(buying_price)
     date_b = datetime.datetime.strptime(date_bought, "%Y.%m.%d").date()
 
-    # Load the file
-    wb = load_workbook("data/stocks.xlsx")
+    # Create sheet
     ws = wb.create_sheet(name)
 
     # Size columns
